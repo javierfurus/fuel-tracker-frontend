@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DateTime } from 'luxon';
 @Component({
   selector: 'app-edit-record',
   templateUrl: './edit-record.component.html',
@@ -10,7 +10,7 @@ import { DateTime } from 'luxon';
 export class EditRecordComponent implements OnInit {
   id: number;
   form: FormGroup;
-  date: string;
+  date: Date;
   amountFilled: number;
   roadType: string;
   tripState: number;
@@ -25,7 +25,7 @@ export class EditRecordComponent implements OnInit {
     this.amountFilled = track.amountFilled;
     this.roadType = track.roadType;
     this.tripState = track.tripState;
-    this.date = track.date.format;
+    this.date = track.date;
     this.gasType = track.gasType;
   }
 
