@@ -1,0 +1,30 @@
+<h2 mat-dialog-title align="center">Modifying record from:</h2>
+<h2 mat-dialog-mat-dialog-title align="center">{{date | date: 'medium'}}</h2>
+<mat-dialog-content align="center" [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Road type" formControlName="roadType">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Amount filled" type="number" formControlName="amountFilled">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Trip state" type="number" formControlName="tripState">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Gas type" type="text" formControlName="gasType">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [startAt]="date"></ngx-mat-datetime-picker>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="warn" (click)="close()">Close</button>
+    <button mat-flat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

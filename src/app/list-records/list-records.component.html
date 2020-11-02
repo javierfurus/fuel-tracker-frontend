@@ -1,0 +1,31 @@
+<div style="text-align:center">
+  <h1>
+    Welcome!
+  </h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Trip</th>
+        <th scope="col">Road Type</th>
+        <th scope="col">Gas Type</th>
+        <th scope="col">Last fill</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let track of tracks">
+        <td>{{track.date | date: 'medium' }}</td>
+        <td>{{track.tripState}} Km</td>
+        <td>{{track.roadType}}</td>
+        <td>{{track.gasType}}</td>
+        <td>{{track.amountFilled}}L</td>
+        <td><button (click)="openEditDialog(track)" type="button" class="btn btn-warning">Edit</button><button
+            (click)="onDeleteData(track)" type="button" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button mat-fab class="floatingButton" (click)="openNewDialog()">
+  <mat-icon aria-hidden="false" class="float" aria-label="Add new item">add</mat-icon>
+</button>
